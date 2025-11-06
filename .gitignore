@@ -421,3 +421,4 @@ FodyWeavers.xsd
 utils/graphics*
 utils/results*
 utils/tmp*
+*.o
