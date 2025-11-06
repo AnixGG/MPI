@@ -9,16 +9,16 @@ BIN="$DIR/tmp_2/${PROG}"
 RESULTS="$DIR/results_2/results_${PROG}_$(date +%Y%m%d_%H%M%S).csv"
 PLOT_SCRIPT="$DIR/plot_results.py"
 
-PROCS=(1 2 3 4 5 6 7 8)
-SIZES=(1000 10000 20000)
+PROCS=(1 4 8)
+SIZES=(5000 10000)
 MODES=(row col block)
-REPEATS=5
+REPEATS=3
 
 mkdir -p "$DIR/tmp_2" "$DIR/results_2" "$DIR/graphics_2"
 
 [ -f "$LAB_SRC" ] || { echo "Source $LAB_SRC not found" >&2; exit 1; }
 
-mpicc "$LAB_SRC" -o "$BIN" || { echo "mpicc failed" >&2; exit 2; }
+mpicc "$LAB_SRC" -o "$BIN" "-lm" || { echo "mpicc failed" >&2; exit 2; }
 
 echo "mode,proc,rows,cols,run,time_sec" > "$RESULTS"
 
