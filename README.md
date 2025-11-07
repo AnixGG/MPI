@@ -69,7 +69,8 @@ sudo apt install openmpi-bin openmpi-doc libopenmpi-dev python3-pandas python3-m
 
 **Условия**
 - число процессов: полный квадрат (`1 4 9`)  
-- `n` должно делиться на `sqrt(p)`  
+- `n` должно делиться на `sqrt(p)`
+- выборки: `6*10^2 12*10^2 15*10^2` 
 
 **Графики**  
 - Ускорение
