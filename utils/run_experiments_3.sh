@@ -10,8 +10,8 @@ RESULTS="$DIR/results_3/results_${PROG}_$(date +%Y%m%d_%H%M%S).csv"
 PLOT_SCRIPT="$DIR/plot_results.py"
 
 # Параметры (процессы должны быть полными квадратами)
-PROCS=(1 4)                 # можно менять (1,4,9,16,...)
-SIZES=(500 1000 1500)         # размеры матриц n x n
+PROCS=(1 4 9)                 # можно менять (1,4,9,16,...)
+SIZES=(600 1200 1500)         # размеры матриц n x n
 REPEATS=3
 
 mkdir -p "$DIR/tmp_3" "$DIR/results_3" "$DIR/graphics_3"
