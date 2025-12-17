@@ -91,7 +91,7 @@ def main():
     plt.figure(figsize=(10, 6))
     
     plt.plot(THREADS_LIST, times_std, marker='o', label='Pthread Library RWLock', linewidth=2)
-    plt.plot(THREADS_LIST, times_my, marker='s', label='Custom RWLock (Ваш код)', linewidth=2, linestyle='--')
+    plt.plot(THREADS_LIST, times_my, marker='s', label='Custom RWLock', linewidth=2, linestyle='--')
 
     plt.title(f'Сравнение RWLock\nOps: {PARAMS["total_ops"]}, Read: {PARAMS["search_percent"]*100}%, Write: {(1.0-PARAMS["search_percent"])*100:.0f}%')
     plt.xlabel('Количество потоков')
