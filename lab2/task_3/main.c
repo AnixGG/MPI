@@ -5,9 +5,9 @@
 
 #include "timer.h"
 #include "my_rand.h"
+#ifdef USE_MY_RWLOCK
 #include "rwlock.h"
-
-#define USE_MY_RWLOCK
+#endif
 
 #ifdef USE_MY_RWLOCK
 typedef my_rwlock_t rwlock_t;
@@ -118,13 +118,21 @@ void Usage(char* prog_name) {
 
 void Get_input(int* inserts_in_main_p) {
     printf("How many keys should be inserted in the main thread?\n");
-    scanf("%d", inserts_in_main_p);
+    if (scanf("%d", inserts_in_main_p) != 1) {
+        printf("failed to receive input\n");
+    } 
     printf("How many ops total should be executed?\n");
-    scanf("%d", &total_ops);
+    if (scanf("%d", &total_ops) == 1) {
+        printf("failed to receive input\n");
+    }
     printf("Percent of ops that should be searches? (between 0 and 1)\n");
-    scanf("%lf", &search_percent);
+    if (scanf("%lf", &search_percent) == 1) {
+        printf("failed to receive input\n");
+    }
     printf("Percent of ops that should be inserts? (between 0 and 1)\n");
-    scanf("%lf", &insert_percent);
+    if (scanf("%lf", &insert_percent) == 1) {
+        printf("failed to receive input\n");
+    }
     delete_percent = 1.0 - (search_percent + insert_percent);
 }
 
